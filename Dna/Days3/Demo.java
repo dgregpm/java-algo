@@ -22,7 +22,7 @@ public class Demo {
         //d.StackTest();
         //d.ArrayListTest();
         //d.QuickSortTest();
-        //d.TreeOrderTest(); //d.BFSTest(); //d.CompareBTTest(); //d.DFSTest();
+        d.TreeOrderTest(); //d.BFSTest(); //d.CompareBTTest(); //d.DFSTest();
         //d.MinHeapTest();
     }
 
@@ -80,11 +80,10 @@ public class Demo {
         for (int i = idx; i < 10000; i++) {
             data[i] = true;
         }
-
+        
         boolean[] data2 = new boolean[1000];
  
         System.out.println("Idx: " + idx + ", Data: " + TwoCrystals.find(data));
-
         System.out.println("False array: " + TwoCrystals.find(data2));
     }
 
@@ -136,7 +135,7 @@ public class Demo {
         System.out.println(in);
         System.out.println(post);
 
-        // --------------------------------------------------------------
+/*        // --------------------------------------------------------------
         System.out.println("\nDFSTest:");
         DFS dfs = new DFS();
         System.out.println(dfs.search(tree1, 45));
@@ -156,7 +155,7 @@ public class Demo {
         System.out.println(BFS.search(tree1, 45));
         System.out.println(BFS.search(tree1, 31));
         System.out.println(BFS.search(tree1, 69));
-    
+  */  
     }
 
     public void QuickSortTest(){
@@ -176,28 +175,44 @@ public class Demo {
         list.append(5);
         list.append(7);
         list.append(9);
-    
+
+        System.out.println(list);
+        //expect(list.get(2)).toEqual(9);
+        //expect(list.removeAt(1)).toEqual(7);
+        //expect(list.length).toEqual(2);   
         System.out.println(list.get(2));
         System.out.println(list.removeAt(1));
         System.out.println(list.size());
 
         list.append(11);
+        //expect(list.removeAt(1)).toEqual(9);
+        //expect(list.remove(9)).toEqual(undefined);
+        //expect(list.removeAt(0)).toEqual(5);
+        //expect(list.removeAt(0)).toEqual(11);
+        //expect(list.length).toEqual(0);     
         System.out.println(list.removeAt(1));
-
         System.out.println(list.remove(9));
         System.out.println(list.removeAt(0));
         System.out.println(list.removeAt(0));
         System.out.println(list.size());
 
         list.prepend(5);
+        System.out.println(list);
         list.prepend(7);
+        System.out.println(list);
         list.prepend(9);
 
+        System.out.println(list);
+        //expect(list.get(2)).toEqual(5);
+        //expect(list.get(0)).toEqual(9);
+        //expect(list.remove(9)).toEqual(9);
+        //expect(list.length).toEqual(2);
+        //expect(list.get(0)).toEqual(7);
         System.out.println(list.get(2));
         System.out.println(list.get(0));
         System.out.println(list.remove(9));
         System.out.println(list.size());
-        System.out.println(list.get(0)); 
+        System.out.println(list.get(0));  
     }
 
     public void StackTest(){

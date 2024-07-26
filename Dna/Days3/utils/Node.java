@@ -1,11 +1,11 @@
 package utils;
 
-public class BinaryNode<T> {
+public class Node<T> {
     private T data;
-    public BinaryNode<T> left;
-    public BinaryNode<T> right;
+    public Node<T> next;
+    public Node<T> prev;
 
-    public BinaryNode(T obj){
+    public Node(T obj){
         this.data = obj;
     }
 

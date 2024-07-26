@@ -12,4 +12,8 @@ public class MinHeap {
     public int delete() {
         return 0;
     }
+
+    public int size(){
+        return 0;
+    }
 }
