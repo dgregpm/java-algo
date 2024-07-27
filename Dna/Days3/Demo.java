@@ -22,8 +22,8 @@ public class Demo {
         //d.StackTest();
         //d.ArrayListTest();
         //d.QuickSortTest();
-        d.TreeOrderTest(); //d.BFSTest(); //d.CompareBTTest(); //d.DFSTest();
-        //d.MinHeapTest();
+        //d.TreeOrderTest(); //d.BFSTest(); //d.CompareBTTest(); //d.DFSTest();
+        d.MinHeapTest();
     }
 
     public void MinHeapTest(){
@@ -44,6 +44,7 @@ public class Demo {
 
        // expect(heap.length).toEqual(8);
         System.out.println(heap.size());
+        System.out.println(heap);
        // expect(heap.delete()).toEqual(1);
        // expect(heap.delete()).toEqual(3);
        // expect(heap.delete()).toEqual(4);
@@ -135,7 +136,7 @@ public class Demo {
         System.out.println(in);
         System.out.println(post);
 
-/*        // --------------------------------------------------------------
+        // --------------------------------------------------------------
         System.out.println("\nDFSTest:");
         DFS dfs = new DFS();
         System.out.println(dfs.search(tree1, 45));
@@ -155,7 +156,7 @@ public class Demo {
         System.out.println(BFS.search(tree1, 45));
         System.out.println(BFS.search(tree1, 31));
         System.out.println(BFS.search(tree1, 69));
-  */  
+    
     }
 
     public void QuickSortTest(){

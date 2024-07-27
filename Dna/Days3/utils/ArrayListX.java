@@ -7,7 +7,7 @@ public class ArrayListX<T> {
 
     public ArrayListX(){
         this.length = 0;
-        this.capacity = 2;
+        this.capacity = 16;
         this.arr = new Object[this.capacity];
     }
 
@@ -88,6 +88,12 @@ public class ArrayListX<T> {
             return null;
         else
             return (T)this.arr[idx];
+    }
+
+    public void set(int idx, T obj){
+        if(!inRange(idx))
+            return;
+        this.arr[idx] = obj;
     }
 
     public T removeAt(int idx) {
