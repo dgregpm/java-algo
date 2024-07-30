@@ -23,9 +23,33 @@ public class Demo {
         //d.ArrayListTest();
         //d.QuickSortTest();
         //d.TreeOrderTest(); //d.BFSTest(); //d.CompareBTTest(); //d.DFSTest();
-        d.MinHeapTest();
+        //d.MinHeapTest();
+        d.TrieTest();
     }
 
+    public void TrieTest(){
+        
+        Trie trie = new Trie();
+        trie.insert("foo");
+        trie.insert("fool");
+        trie.insert("foolish");
+        trie.insert("bar");
+
+        System.out.println(trie.find("fo"));
+
+     /*   expect(trie.find("fo").sort()).toEqual([
+            "foo",
+            "fool",
+            "foolish",
+        ]);
+
+        trie.delete("fool");
+
+        expect(trie.find("fo").sort()).toEqual([
+        "foo",
+        "foolish",
+        ]); */
+    }
     public void MinHeapTest(){
         MinHeap heap = new MinHeap();
 
