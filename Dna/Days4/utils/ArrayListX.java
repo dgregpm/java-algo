@@ -1,5 +1,6 @@
 package utils;
-import java.lang.reflect;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class ArrayListX<T> {
     private int length;
@@ -12,7 +13,7 @@ public class ArrayListX<T> {
         this.arr = new Object[this.capacity];
     }
 
-    public ArrayListX(Object obj, int len){
+    public ArrayListX(Object[] obj, int len){
         this.length = len;
         this.capacity = 2*this.length + 2;
         this.arr = new Object[this.capacity];
@@ -22,7 +23,10 @@ public class ArrayListX<T> {
     }
 
     public void prepend(T obj) {
-        this.insertAt(obj, 0);
+        this.capacityCheck();
+        this.shift(0);
+        this.arr[0] = obj;
+        this.length++;
     }
 
     public void insertAt(T obj, int idx) {
@@ -77,11 +81,19 @@ public class ArrayListX<T> {
     }
 
     public String toString(){
-        return this.arr.toString();
+        StringBuilder sb = new StringBuilder();
+        sb.append("[ ");
+        for (int i = 0; i < this.size(); i++) {
+            sb.append(this.arr[i]);
+            if(i < this.size() - 1)
+                sb.append(", ");
+        }
+        sb.append(" ]");
+        return sb.toString();
     }
 
     private void capacityCheck(){
-        if(this.length >= this.capacity - 2;){
+        if(this.length >= this.capacity - 2){
             this.capacity = 2*this.capacity + 2;
             Object[] narr = new Object[this.capacity];
             System.arraycopy(this.arr, 0, narr, 0,this.length);
@@ -106,6 +118,7 @@ public class ArrayListX<T> {
         for (int i = idx; i < this.length - 1; i++) {
             this.arr[i] = this.arr[i + 1];
         }
+        this.arr[this.length - 1] = null;
     }
 
 }

@@ -8,7 +8,7 @@ import utils.BinaryNode;
 import utils.QueueX;
 import utils.StackX;
 import utils.ArrayListX;
-
+import utils.LinkedListX;
 
 public class Demo {
            
@@ -20,11 +20,21 @@ public class Demo {
         //d.MazeSolverTest();
         //d.QueueTest();
         //d.StackTest();
-        d.ArrayListTest();
+        d.ListTest();
         //d.QuickSortTest();
         //d.TreeOrderTest(); //d.BFSTest(); //d.CompareBTTest(); //d.DFSTest();
         //d.MinHeapTest();
         //d.TrieTest();
+        //d.InsertionSortTest();
+    }
+
+    public void InsertionSortTest(){
+        InsertionSort insert = new InsertionSort();
+        ArrayListX<Integer> arr = new ArrayListX<>(Arrays.stream(this.generateRandomArray(10,30)).boxed().toArray(Object[]::new), 10);
+
+
+        insert.sort(arr);
+        System.out.println(arr);
     }
 
     public void TrieTest(){
@@ -34,22 +44,29 @@ public class Demo {
         trie.insert("fool");
         trie.insert("foolish");
         trie.insert("bar");
+        trie.insert("time");
+        trie.insert("timely");
+        trie.insert("foobar");
+        trie.insert("tine");
 
-        System.out.println(trie.find("fo"));
+        System.out.println(trie.find("foo"));
+        System.out.println(trie.find("ti"));
+        System.out.println(trie.find("b"));
 
-     /*   expect(trie.find("fo").sort()).toEqual([
-            "foo",
-            "fool",
-            "foolish",
-        ]);
+      //   expect(trie.find("fo").sort()).toEqual([
+      //      "foo",
+      //      "fool",
+      //      "foolish",
+      //  ]);
 
         trie.delete("fool");
 
-        expect(trie.find("fo").sort()).toEqual([
-        "foo",
-        "foolish",
-        ]); */
+      //  expect(trie.find("fo").sort()).toEqual([
+      // "foo",
+      //  "foolish",
+      //  ]); 
     }
+
     public void MinHeapTest(){
         MinHeap heap = new MinHeap();
 
@@ -58,7 +75,7 @@ public class Demo {
         System.out.println(heap.size());
 
         heap.insert(5);
-        heap.insert(3);
+        heap.insert(4);
         heap.insert(69);
         heap.insert(420);
         heap.insert(4);
@@ -95,7 +112,6 @@ public class Demo {
     
         System.out.println(heap.delete());
     }
-
 
     public void TwoCrystalTest(){
         Random rand = new Random();
@@ -194,8 +210,9 @@ public class Demo {
         System.out.println(Arrays.toString(arr));
     }
 
-    public void ArrayListTest(){
-        ArrayListX<Integer> list = new ArrayListX<>();
+    public void ListTest(){
+        //ArrayListX<Integer> list = new ArrayListX<>();
+        LinkedListX<Integer> list = new LinkedListX<>();
 
         list.append(5);
         list.append(7);
@@ -222,9 +239,7 @@ public class Demo {
         System.out.println(list.size());
 
         list.prepend(5);
-        System.out.println(list);
         list.prepend(7);
-        System.out.println(list);
         list.prepend(9);
 
         System.out.println(list);
@@ -247,6 +262,13 @@ public class Demo {
         list.push(9);
 
         System.out.println(list);
+        
+        list.reverse();
+
+        System.out.println(list);
+
+        list.reverse();
+
         System.out.println(list.pop());
         System.out.println(list.size());
 
@@ -273,6 +295,9 @@ public class Demo {
         q.enqueue(9);
         q.enqueue(11);
         System.out.println(q);
+        q.reverse();
+        System.out.println(q);
+        q.reverse();
         System.out.println(q.size());
         q.deque();
         q.deque();
