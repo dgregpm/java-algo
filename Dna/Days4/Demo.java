@@ -9,6 +9,7 @@ import utils.QueueX;
 import utils.StackX;
 import utils.ArrayListX;
 import utils.LinkedListX;
+import utils.Graph;
 
 public class Demo {
            
@@ -20,12 +21,31 @@ public class Demo {
         //d.MazeSolverTest();
         //d.QueueTest();
         //d.StackTest();
-        d.ListTest();
+        //d.ListTest();
         //d.QuickSortTest();
         //d.TreeOrderTest(); //d.BFSTest(); //d.CompareBTTest(); //d.DFSTest();
         //d.MinHeapTest();
         //d.TrieTest();
         //d.InsertionSortTest();
+        d.BFSGraphMatrixTest();
+    }
+
+    public void BFSGraphMatrixTest(){
+
+        //expect(bfs(matrix2, 0, 6)).toEqual([
+        //0,
+        //1,
+        //4,
+        //5,
+        //6,
+        BFSGraphMatrix b = new BFSGraphMatrix();
+        System.out.println(b.bfs(Graph.matrix2(), 0, 6));
+
+        //expect(bfs(matrix2, 6, 0)).toEqual(null);
+        System.out.println(b.bfs(Graph.matrix2(), 6, 0));
+        for (int i = 0; i < Graph.matrix2().length; i++) {
+            System.out.println(Arrays.toString(Graph.matrix2()[i]));                
+        }
     }
 
     public void InsertionSortTest(){
@@ -211,8 +231,8 @@ public class Demo {
     }
 
     public void ListTest(){
-        //ArrayListX<Integer> list = new ArrayListX<>();
-        LinkedListX<Integer> list = new LinkedListX<>();
+        ArrayListX<Integer> list = new ArrayListX<>();
+        //LinkedListX<Integer> list = new LinkedListX<>();
 
         list.append(5);
         list.append(7);

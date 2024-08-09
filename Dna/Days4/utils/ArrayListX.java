@@ -4,21 +4,21 @@ import java.util.Arrays;
 
 public class ArrayListX<T> {
     private int length;
-    private Object[] arr;
+    private T[] arr;
     private int capacity;
 
     public ArrayListX(){
         this.length = 0;
         this.capacity = 16;
-        this.arr = new Object[this.capacity];
+        this.arr = (T[])new Object[this.capacity];
     }
 
     public ArrayListX(Object[] obj, int len){
         this.length = len;
         this.capacity = 2*this.length + 2;
-        this.arr = new Object[this.capacity];
+        this.arr = (T[])new Object[this.capacity];
         for (int i = 0; i < this.length; i++) {
-            this.arr[i] = Array.get(obj,i);
+            this.arr[i] = (T)Array.get(obj,i);
         }
     }
 
@@ -60,7 +60,7 @@ public class ArrayListX<T> {
         if(!inRange(idx))
             return null;
         else
-            return (T)this.arr[idx];
+            return this.arr[idx];
     }
 
     public void set(int idx, T obj){
@@ -74,10 +74,10 @@ public class ArrayListX<T> {
             return null;
         this.capacityCheck();
 
-        Object o = this.arr[idx];
+        T o = this.arr[idx];
         unShift(idx);
         this.length--;
-        return (T)o;
+        return o;
     }
 
     public String toString(){
@@ -95,7 +95,7 @@ public class ArrayListX<T> {
     private void capacityCheck(){
         if(this.length >= this.capacity - 2){
             this.capacity = 2*this.capacity + 2;
-            Object[] narr = new Object[this.capacity];
+            T[] narr = (T[])new Object[this.capacity];
             System.arraycopy(this.arr, 0, narr, 0,this.length);
             this.arr = narr;
         }
