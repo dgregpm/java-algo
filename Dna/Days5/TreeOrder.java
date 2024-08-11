@@ -1,3 +1,6 @@
+import utils.QueueX;
+import utils.BinaryNode;
+
 public class TreeOrder {
 
     public QueueX<Integer> preOrderSearch(BinaryNode<Integer> head) {

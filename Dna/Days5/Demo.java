@@ -3,13 +3,13 @@ import java.util.Random;
 import java.util.ArrayList;
 import java.util.Stack;
 
-import utils.Point;
-import utils.BinaryNode;
+//import utils.Point;
+//import utils.BinaryNode;
 import utils.QueueX;
 import utils.StackX;
 import utils.ArrayListX;
-import utils.LinkedListX;
-import utils.Graph;
+//import utils.LinkedListX;
+//import utils.Graph;
 
 public class Demo {
            
@@ -22,14 +22,14 @@ public class Demo {
         //d.QueueTest();
         //d.StackTest();
         //d.ListTest();
-        //d.QuickSortTest();
+        d.QuickSortTest();
         //d.TreeOrderTest(); //d.BFSTest(); //d.CompareBTTest(); //d.DFSTest();
         //d.MinHeapTest();
         //d.TrieTest();
         //d.InsertionSortTest();
-        d.BFSGraphMatrixTest();
+        //d.BFSGraphMatrixTest();
     }
-
+/*
     public void BFSGraphMatrixTest(){
 
         //expect(bfs(matrix2, 0, 6)).toEqual([
@@ -46,15 +46,6 @@ public class Demo {
        //for (int i = 0; i < Graph.matrix2().length; i++) {
          //   System.out.println(Arrays.toString(Graph.matrix2()[i]));                
         //}
-    }
-
-    public void InsertionSortTest(){
-        InsertionSort insert = new InsertionSort();
-        ArrayListX<Integer> arr = new ArrayListX<>(Arrays.stream(this.generateRandomArray(10,30)).boxed().toArray(Object[]::new), 10);
-
-
-        insert.sort(arr);
-        System.out.println(arr);
     }
 
     public void TrieTest(){
@@ -133,21 +124,6 @@ public class Demo {
         System.out.println(heap.delete());
     }
 
-    public void TwoCrystalTest(){
-        Random rand = new Random();
-
-        int idx = rand.nextInt(10000);
-        boolean[] data = new boolean[10000];
-        for (int i = idx; i < 10000; i++) {
-            data[i] = true;
-        }
-        
-        boolean[] data2 = new boolean[1000];
- 
-        System.out.println("Idx: " + idx + ", Data: " + TwoCrystals.find(data));
-        System.out.println("False array: " + TwoCrystals.find(data2));
-    }
-
     public void TreeOrderTest(){
         BinaryNode<Integer> tree1 = new BinaryNode<Integer>(20);
         tree1.left = new BinaryNode<Integer>(10);
@@ -218,10 +194,19 @@ public class Demo {
         System.out.println(BFS.search(tree1, 69));
     
     }
+*/
+    public void InsertionSortTest(){
+        InsertionSort insert = new InsertionSort();
+        ArrayListX<Integer> arr = new ArrayListX<>(Arrays.stream(this.generateRandomArray(10,30)).boxed().toArray(Object[]::new), 10);
+
+
+        insert.sort(arr);
+        System.out.println(arr);
+    }
 
     public void QuickSortTest(){
         QuickSort q = new QuickSort();
-        Integer[] arr = Arrays.stream(this.generateRandomArray(10,50)).boxed().toArray(Integer[]::new);
+        Integer[] arr = Arrays.stream(this.generateRandomArray(6,50)).boxed().toArray(Integer[]::new);
 
         System.out.println(Arrays.toString(arr));
 
@@ -231,7 +216,7 @@ public class Demo {
     }
 
     public void ListTest(){
-        ArrayListX<Integer> list = new ArrayListX<>();
+        ArrayListX<Integer> list = new ArrayListX<>(4);
         //LinkedListX<Integer> list = new LinkedListX<>();
 
         list.append(5);
@@ -272,7 +257,18 @@ public class Demo {
         System.out.println(list.get(0));
         System.out.println(list.remove(9));
         System.out.println(list.size());
-        System.out.println(list.get(0));  
+        System.out.println(list.get(0));
+
+        list.remove(7);
+        list.remove(5);
+
+        for (int i = 0; i < 12; i++) {
+            list.append(i);
+        }
+        list.insertAt(420, 11);
+        System.out.println(list);
+        list.reverse();
+        System.out.println(list);
     }
 
     public void StackTest(){
@@ -342,17 +338,32 @@ public class Demo {
         System.out.println(Arrays.equals(nums,test));
     }
 
+    public void TwoCrystalTest(){
+        Random rand = new Random();
+
+        int idx = rand.nextInt(10000);
+        boolean[] data = new boolean[10000];
+        for (int i = idx; i < 10000; i++) {
+            data[i] = true;
+        }
+        
+        boolean[] data2 = new boolean[1000];
+ 
+        System.out.println("Idx: " + idx + ", Data: " + TwoCrystals.find(data));
+        System.out.println("False array: " + TwoCrystals.find(data2));
+    }
+
     public void BinarySearchTest(){
         Random rand = new Random();
         int[] nums = generateRandomArray(10,20);
-        BubbleSort.sort(nums);
+        Arrays.sort(nums);
         int target = rand.nextInt(26);
         System.out.println("Array: " + Arrays.toString(nums));
         System.out.println("Target: " + target);
         System.out.println("Found?: " + BinarySearch.search(nums, target));
 
     }
-
+/*
     public void MazeSolverTest(){
         String[] maze = {
             "xxxxxxxxxx x",
@@ -368,7 +379,7 @@ public class Demo {
         MazeSolver m = new MazeSolver();
         m.solve(maze,wall,start,end);
     }
-
+*/
     public int[] generateRandomArray(int l, int s){
         Random rand = new Random();
         int[] nums = new int[l];
