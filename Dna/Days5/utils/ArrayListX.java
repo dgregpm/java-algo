@@ -84,6 +84,7 @@ public class ArrayListX<T> {
     public void set(int idx, T obj){
         if(!inRange(idx))
             throw new IndexOutOfBoundsException("Index: " + idx + " is out of bounds!");
+        this.arr[idx] = obj;
     }
 
     public T removeAt(int idx) {
@@ -95,7 +96,8 @@ public class ArrayListX<T> {
         this.length--;
         return obj;
     }
-
+    
+    @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("[ ");

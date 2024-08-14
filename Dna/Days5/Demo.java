@@ -3,8 +3,8 @@ import java.util.Random;
 import java.util.ArrayList;
 import java.util.Stack;
 
-//import utils.Point;
-//import utils.BinaryNode;
+import utils.Point;
+import utils.BinaryNode;
 import utils.QueueX;
 import utils.StackX;
 import utils.ArrayListX;
@@ -22,10 +22,10 @@ public class Demo {
         //d.QueueTest();
         //d.StackTest();
         //d.ListTest();
-        d.QuickSortTest();
+        //d.QuickSortTest();
         //d.TreeOrderTest(); //d.BFSTest(); //d.CompareBTTest(); //d.DFSTest();
         //d.MinHeapTest();
-        //d.TrieTest();
+        d.TrieTest();
         //d.InsertionSortTest();
         //d.BFSGraphMatrixTest();
     }
@@ -47,7 +47,7 @@ public class Demo {
          //   System.out.println(Arrays.toString(Graph.matrix2()[i]));                
         //}
     }
-
+*/
     public void TrieTest(){
         
         Trie trie = new Trie();
@@ -59,7 +59,8 @@ public class Demo {
         trie.insert("timely");
         trie.insert("foobar");
         trie.insert("tine");
-
+        
+        System.out.println(trie.printAll());
         System.out.println(trie.find("foo"));
         System.out.println(trie.find("ti"));
         System.out.println(trie.find("b"));
@@ -71,7 +72,12 @@ public class Demo {
       //  ]);
 
         trie.delete("fool");
-
+        System.out.println(trie.find("foo"));
+        trie.delete("bar");
+        System.out.println(trie.find("b"));
+        trie.delete("timely");
+        trie.delete("tine");
+        System.out.println(trie.printAll());
       //  expect(trie.find("fo").sort()).toEqual([
       // "foo",
       //  "foolish",
@@ -86,7 +92,7 @@ public class Demo {
         System.out.println(heap.size());
 
         heap.insert(5);
-        heap.insert(4);
+        heap.insert(3);
         heap.insert(69);
         heap.insert(420);
         heap.insert(4);
@@ -194,7 +200,7 @@ public class Demo {
         System.out.println(BFS.search(tree1, 69));
     
     }
-*/
+
     public void InsertionSortTest(){
         InsertionSort insert = new InsertionSort();
         ArrayListX<Integer> arr = new ArrayListX<>(Arrays.stream(this.generateRandomArray(10,30)).boxed().toArray(Object[]::new), 10);
@@ -363,7 +369,7 @@ public class Demo {
         System.out.println("Found?: " + BinarySearch.search(nums, target));
 
     }
-/*
+
     public void MazeSolverTest(){
         String[] maze = {
             "xxxxxxxxxx x",
@@ -379,7 +385,7 @@ public class Demo {
         MazeSolver m = new MazeSolver();
         m.solve(maze,wall,start,end);
     }
-*/
+
     public int[] generateRandomArray(int l, int s){
         Random rand = new Random();
         int[] nums = new int[l];
