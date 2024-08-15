@@ -9,7 +9,7 @@ import utils.QueueX;
 import utils.StackX;
 import utils.ArrayListX;
 //import utils.LinkedListX;
-//import utils.Graph;
+import utils.Graph;
 
 public class Demo {
            
@@ -25,11 +25,28 @@ public class Demo {
         //d.QuickSortTest();
         //d.TreeOrderTest(); //d.BFSTest(); //d.CompareBTTest(); //d.DFSTest();
         //d.MinHeapTest();
-        d.TrieTest();
+        //d.TrieTest();
         //d.InsertionSortTest();
         //d.BFSGraphMatrixTest();
+        d.DFSGraphListTest();
     }
-/*
+
+    public void DFSGraphListTest(){
+
+        //expect(dfs(list2, 0, 6)).toEqual([
+        //0,
+        //1,
+        //4,
+        //5,
+        //6,
+        DFSGraphList d = new DFSGraphList();
+        System.out.println(d.dfs(Graph.list2(),0,6));
+
+        //expect(dfs(list2, 6, 0)).toEqual(null);
+        System.out.println(d.dfs(Graph.list2(),6,0));
+
+    }
+
     public void BFSGraphMatrixTest(){
 
         //expect(bfs(matrix2, 0, 6)).toEqual([
@@ -47,7 +64,7 @@ public class Demo {
          //   System.out.println(Arrays.toString(Graph.matrix2()[i]));                
         //}
     }
-*/
+
     public void TrieTest(){
         
         Trie trie = new Trie();

@@ -2,79 +2,44 @@ package utils;
 
 public class Graph {
 
-    /*
-list1: WeightedAdjacencyList = [];
+    //list1: WeightedAdjacencyList = [];
+    //      (1) --- (4) ---- (5)
+    //    /  |       |       /|
+    // (0)   | ------|------- |
+    //    \  |/      |        |
+    //      (2) --- (3) ---- (6)
 
-//      (1) --- (4) ---- (5)
-//    /  |       |       /|
-// (0)   | ------|------- |
-//    \  |/      |        |
-//      (2) --- (3) ---- (6)
-list1[0] = [
-    { to: 1, weight: 3 },
-    { to: 2, weight: 1 },
-];
-list1[1] = [
-    { to: 0, weight: 3 },
-    { to: 2, weight: 4 },
-    { to: 4, weight: 1 },
-];
-list1[2] = [
-    { to: 1, weight: 4 },
-    { to: 3, weight: 7 },
-    { to: 0, weight: 1 },
-];
-list1[3] = [
-    { to: 2, weight: 7 },
-    { to: 4, weight: 5 },
-    { to: 6, weight: 1 },
-];
-list1[4] = [
-    { to: 1, weight: 1 },
-    { to: 3, weight: 5 },
-    { to: 5, weight: 2 },
-];
-list1[5] = [
-    { to: 6, weight: 1 },
-    { to: 4, weight: 2 },
-    { to: 2, weight: 18 },
-];
-list1[6] = [
-    { to: 3, weight: 1 },
-    { to: 5, weight: 1 },
-];
+    public static GraphEdge[][] list1(){
+        GraphEdge[][] g = new GraphEdge[][] {
+            {new GraphEdge(1,3),new GraphEdge(2,1)},
+            {new GraphEdge(0,3),new GraphEdge(2,4),new GraphEdge(4,1)},
+            {new GraphEdge(1,4),new GraphEdge(3,7),new GraphEdge(0,1)},
+            {new GraphEdge(2,7),new GraphEdge(4,5),new GraphEdge(6,1)},
+            {new GraphEdge(1,1),new GraphEdge(3,5),new GraphEdge(5,2)},
+            {new GraphEdge(6,1),new GraphEdge(4,2),new GraphEdge(2,18)},
+            {new GraphEdge(3,1),new GraphEdge(5,1)}
+        };
+        return g;
+    }
 
-export const list2: WeightedAdjacencyList = [];
-
-//     >(1)<--->(4) ---->(5)
-//    /          |       /|
-// (0)     ------|------- |
-//    \   v      v        v
-//     >(2) --> (3) <----(6)
-list2[0] = [
-    { to: 1, weight: 3 },
-    { to: 2, weight: 1 },
-];
-list2[1] = [
-    { to: 4, weight: 1 },
-];
-list2[2] = [
-    { to: 3, weight: 7 },
-];
-list2[3] = [ ];
-list2[4] = [
-    { to: 1, weight: 1 },
-    { to: 3, weight: 5 },
-    { to: 5, weight: 2 },
-];
-list2[5] = [
-    { to: 2, weight: 18 },
-    { to: 6, weight: 1 },
-];
-list2[6] = [
-    { to: 3, weight: 1 },
-];
-*/
+    //export const list2: WeightedAdjacencyList = [];
+    //     >(1)<--->(4) ---->(5)
+    //    /          |       /|
+    // (0)     ------|------- |
+    //    \   v      v        v
+    //     >(2) --> (3) <----(6)
+    public static GraphEdge[][] list2(){
+        GraphEdge[][] g = new GraphEdge[][] {
+            {new GraphEdge(1,3),new GraphEdge(2,1)},
+            {new GraphEdge(4,1)},
+            {new GraphEdge(3,7)},
+            {},
+            {new GraphEdge(1,1),new GraphEdge(3,5),new GraphEdge(5,2)},
+            {new GraphEdge(2,18),new GraphEdge(6,1)},
+            {new GraphEdge(3,1)}
+        };
+        return g;
+    }
 
     //     >(1)<--->(4) ---->(5)
     //    /          |       /|
@@ -93,5 +58,4 @@ list2[6] = [
         };
         return m;        
     }
-
 }
