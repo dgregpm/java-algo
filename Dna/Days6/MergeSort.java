@@ -1,6 +1,6 @@
 public class MergeSort {
 
-    public void sort(int[] arr) {
+    public void sort(Integer[] arr) {
 
     }
 

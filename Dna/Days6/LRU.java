@@ -2,7 +2,7 @@ public class LRU<K,V> {
     
     private int length;
 
-    LRU() {
+    public LRU(int l) {
     
     }
 
@@ -11,6 +11,6 @@ public class LRU<K,V> {
     }
     
     public V get(K key) {
-
+        return null;
     }
 }

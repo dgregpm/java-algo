@@ -1,29 +1,26 @@
-import utils.ArrayListX;
 import java.util.Arrays;
+import utils.ArrayListX;
 import utils.GraphEdge;
 
-public class DijkstraList {
-
-    public ArrayListX<Integer> graph(int source, int sink, GraphEdge[][] arr) {
-        ArrayListX<Integer> res = new ArrayListX<>();
-        boolean[] seen = new boolean[arr.length];
-        double[] dists = new double[arr.length];
+public class DijkstraListX {
+    public ArrayListX<Integer> graph(int source, int sink, GraphEdge[][] g){
+        boolean[] seen = new boolean[g.length];
+        double[] dists = new double[g.length];
+        int[] prev = new int[g.length];
         Arrays.fill(dists,Double.POSITIVE_INFINITY);
-        int[] prev = new int[arr.length];
-        Arrays.fill(prev,-1);
-
+        Arrays.fill(prev, -1);
         dists[source] = 0;
 
-        while(hasUnvisited(seen,dists)){
-            int curr = getLowestUnvisited(seen,dists);
+        while(this.hasUnvisited(seen,dists)){
+            int curr = lowestUnvisited(seen,dists);
             seen[curr] = true;
 
-            GraphEdge[] adjs = arr[curr];
+            GraphEdge[] adjs = g[curr];
             for (int i = 0; i < adjs.length; i++) {
                 GraphEdge edge = adjs[i];
                 if(seen[edge.to()])
                     continue;
-
+                
                 double dist = dists[curr] + edge.weight();
                 if(dist < dists[edge.to()]){
                     dists[edge.to()] = dist;
@@ -31,22 +28,20 @@ public class DijkstraList {
                 }
             }
         }
-
-        
+        ArrayListX<Integer> out = new ArrayListX<>();
         int curr = sink;
-
         while(prev[curr] != -1){
-            res.prepend(curr);
+            out.prepend(curr);
             curr = prev[curr];
         }
 
-        res.prepend(source);
-
-        System.out.println(Arrays.toString(dists));
-        return res;
+        if(out.size() > 0)
+            out.prepend(source);
+        System.out.println(Arrays.toString(prev));
+        return out;
     }
 
-    private boolean hasUnvisited(boolean[] seen, double[] dists){
+    public boolean hasUnvisited(boolean[] seen, double[] dists){
         for (int i = 0; i < seen.length; i++) {
             if(!seen[i] && dists[i] < Double.POSITIVE_INFINITY)
                 return true;
@@ -54,14 +49,14 @@ public class DijkstraList {
         return false;
     }
 
-    private int getLowestUnvisited(boolean[] seen, double[] dists){
+    public int lowestUnvisited(boolean[] seen, double[] dists){
         int idx = -1;
         double lowestDistance = Double.POSITIVE_INFINITY;
-
+        
         for (int i = 0; i < seen.length; i++) {
             if(seen[i])
                 continue;
-
+            
             if(lowestDistance > dists[i]){
                 lowestDistance = dists[i];
                 idx = i;
@@ -69,6 +64,4 @@ public class DijkstraList {
         }
         return idx;
     }
-
 }
-
