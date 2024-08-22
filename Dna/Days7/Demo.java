@@ -1,33 +1,171 @@
 import java.util.Arrays;
 import java.util.Random;
-import java.util.ArrayList;
-import java.util.Stack;
+//import java.util.ArrayList;
+//import java.util.Stack;
 
-import utils.Point;
-import utils.BinaryNode;
-import utils.QueueX;
-import utils.StackX;
-import utils.ArrayListX;
-import utils.LinkedListX;
+//import utils.Point;
+//import utils.BinaryNode;
+//import utils.QueueX;
+//import utils.StackX;
+//import utils.ArrayListX;
+//import utils.LinkedListX;
 import utils.Graph;
 
 public class Demo {
            
     public static void main(String[] args){
         Demo d = new Demo();
-        //d.BubbleSortTest();
+        d.BubbleSortTest();
         //d.BinarySearchTest();
         //d.TwoCrystalTest();
         //d.MazeSolverTest();
         //d.QueueTest();
         //d.StackTest();
         //d.ListTest();
-        d.QuickSortTest();
+        //d.QuickSortTest();
         //d.TreeOrderTest(); //d.BFSTest(); //d.CompareBTTest(); //d.DFSTest();
         //d.MinHeapTest();
         //d.TrieTest();
         //d.InsertionSortTest();
         //d.BFSGraphMatrixTest();
+        //d.DFSGraphListTest();
+        //d.DijkstraListTest();
+        //d.HashMapTest();
+        //d.LRUTest();
+        //d.MergeSortTest();
+    }
+/*
+    public void PrimsListTest(){
+        // there is only one right answer for this graph
+        //expect(prims(list1)).toEqual([
+        //    [
+        //        { to: 2, weight: 1 },
+        //        { to: 1, weight: 3 },
+        //    ],
+        //    [
+        //        { to: 0, weight: 3 },
+        //        { to: 4, weight: 1 },
+        //    ],
+        //    [ 
+        //        { to: 0, weight: 1 }
+        //    ],
+        //    [ 
+        //        { to: 6, weight: 1 }
+        //    ],
+        //    [
+        //        { to: 1, weight: 1 },
+        //        { to: 5, weight: 2 },
+        //    ],
+        //    [
+        //        { to: 4, weight: 2 },
+        //        { to: 6, weight: 1 },
+        //    ],
+        //    [
+        //        { to: 5, weight: 1 },
+        //        { to: 3, weight: 1 },
+        //    ],
+        //]);
+        PrimsList p = new PrimsList();
+        GraphEdge[][] g = p.prims(Graph.list1());
+        for (int i = 0; i < g.length; i++) {
+            System.out.println(Arrays.toString(g[i]));
+        }
+    }
+
+    public void MergeSortTest(){
+        MergeSort q = new MergeSort();
+        Integer[] arr = Arrays.stream(this.generateRandomArray(6,50)).boxed().toArray(Integer[]::new);
+
+        System.out.println(Arrays.toString(arr));
+
+        q.sort(arr);
+
+        System.out.println(Arrays.toString(arr));
+    }
+
+    public void LRUTest(){
+        LRU<String, Integer> lru = new LRU<>(3);
+        //expect(lru.get("foo")).toEqual(undefined);
+        System.out.println(lru.get("foo"));
+        lru.update("foo", 69);
+        //expect(lru.get("foo")).toEqual(69);
+        System.out.println(lru.get("foo"));
+        lru.update("bar", 420);
+        //expect(lru.get("bar")).toEqual(420);
+        System.out.println(lru.get("bar"));
+        lru.update("baz", 1337);
+        //expect(lru.get("baz")).toEqual(1337);
+        System.out.println(lru.get("baz"));
+        lru.update("ball", 69420);
+        //expect(lru.get("ball")).toEqual(69420);
+        //expect(lru.get("foo")).toEqual(undefined);
+        //expect(lru.get("bar")).toEqual(420);
+        System.out.println(lru.get("ball"));
+        System.out.println(lru.get("foo"));
+        System.out.println(lru.get("bar"));
+        lru.update("foo", 69);
+        //expect(lru.get("bar")).toEqual(420);
+        //expect(lru.get("foo")).toEqual(69);
+        System.out.println(lru.get("bar"));
+        System.out.println(lru.get("foo"));
+        // shouldn't of been deleted, but since bar was get'd, bar was added to the
+        // front of the list, so baz became the end
+        //expect(lru.get("baz")).toEqual(undefined);
+        System.out.println(lru.get("baz"));
+    }
+
+    public void HashMapTest(){
+        HashMapX<String, Integer> map = new HashMapX<>();
+        map.set("foo", 55);
+        //expect(map.size()).toEqual(1);
+        System.out.println(map.size());
+        map.set("fool", 75);
+        //expect(map.size()).toEqual(2);
+        System.out.println(map.size());
+        map.set("foolish", 105);
+        //expect(map.size()).toEqual(3);
+        System.out.println(map.size());
+        map.set("bar", 69);
+        //expect(map.size()).toEqual(4);
+        System.out.println(map.size());
+        //expect(map.get("bar")).toEqual(69);
+        System.out.println(map.get("bar"));
+        //expect(map.get("blaz")).toEqual(undefined);
+        System.out.println(map.get("blaz"));
+        map.delete("barblabr");
+        //expect(map.size()).toEqual(4);
+        System.out.println(map.size());
+        map.delete("bar");
+        //expect(map.size()).toEqual(3);
+        //expect(map.get("bar")).toEqual(undefined);
+        System.out.println(map.size());
+        System.out.println(map.get("bar"));
+    }
+
+    public void DijkstraListTest(){
+        /// waht?
+        // what..
+        // what...
+        //expect(dijkstra_list(0, 6, list1)).toEqual([0, 1, 4, 5, 6]);
+        //DijkstraList d = new DijkstraList();
+        DijkstraListX d = new DijkstraListX();
+        System.out.println(d.graph(0,6,Graph.list1()));
+    }
+
+    public void DFSGraphListTest(){
+
+        //expect(dfs(list2, 0, 6)).toEqual([
+        //0,
+        //1,
+        //4,
+        //5,
+        //6,
+        DFSGraphList d = new DFSGraphList();
+        System.out.println(d.dfs(Graph.list2(),0,6));
+
+        //expect(dfs(list2, 6, 0)).toEqual(null);
+        System.out.println(d.dfs(Graph.list2(),6,0));
+
     }
 
     public void BFSGraphMatrixTest(){
@@ -43,18 +181,6 @@ public class Demo {
 
         //expect(bfs(matrix2, 6, 0)).toEqual(null);
         System.out.println(b.bfs(Graph.matrix2(), 6, 0));
-       //for (int i = 0; i < Graph.matrix2().length; i++) {
-         //   System.out.println(Arrays.toString(Graph.matrix2()[i]));                
-        //}
-    }
-
-    public void InsertionSortTest(){
-        InsertionSort insert = new InsertionSort();
-        ArrayListX<Integer> arr = new ArrayListX<>(Arrays.stream(this.generateRandomArray(10,30)).boxed().toArray(Object[]::new), 10);
-
-
-        insert.sort(arr);
-        System.out.println(arr);
     }
 
     public void TrieTest(){
@@ -68,7 +194,8 @@ public class Demo {
         trie.insert("timely");
         trie.insert("foobar");
         trie.insert("tine");
-
+        
+        System.out.println(trie.printAll());
         System.out.println(trie.find("foo"));
         System.out.println(trie.find("ti"));
         System.out.println(trie.find("b"));
@@ -80,7 +207,12 @@ public class Demo {
       //  ]);
 
         trie.delete("fool");
-
+        System.out.println(trie.find("foo"));
+        trie.delete("bar");
+        System.out.println(trie.find("b"));
+        trie.delete("timely");
+        trie.delete("tine");
+        System.out.println(trie.printAll());
       //  expect(trie.find("fo").sort()).toEqual([
       // "foo",
       //  "foolish",
@@ -95,7 +227,7 @@ public class Demo {
         System.out.println(heap.size());
 
         heap.insert(5);
-        heap.insert(4);
+        heap.insert(3);
         heap.insert(69);
         heap.insert(420);
         heap.insert(4);
@@ -131,21 +263,6 @@ public class Demo {
         System.out.println(heap.size());
     
         System.out.println(heap.delete());
-    }
-
-    public void TwoCrystalTest(){
-        Random rand = new Random();
-
-        int idx = rand.nextInt(10000);
-        boolean[] data = new boolean[10000];
-        for (int i = idx; i < 10000; i++) {
-            data[i] = true;
-        }
-        
-        boolean[] data2 = new boolean[1000];
- 
-        System.out.println("Idx: " + idx + ", Data: " + TwoCrystals.find(data));
-        System.out.println("False array: " + TwoCrystals.find(data2));
     }
 
     public void TreeOrderTest(){
@@ -219,9 +336,21 @@ public class Demo {
     
     }
 
+    public void InsertionSortTest(){
+        InsertionSort insert = new InsertionSort();
+        int[] obj = this.generateRandomArray(10,30);
+        ArrayListX<Integer> arr = new ArrayListX<>(Arrays.stream(obj).boxed().toArray(Object[]::new), 10);
+
+        insert.sort(arr);
+        System.out.println("ArrayList Version: " + arr);
+        
+        insert.sort2(obj);
+        System.out.println("Int Array Version: " + Arrays.toString(obj));
+    }
+
     public void QuickSortTest(){
         QuickSort q = new QuickSort();
-        Integer[] arr = Arrays.stream(this.generateRandomArray(10,50)).boxed().toArray(Integer[]::new);
+        Integer[] arr = Arrays.stream(this.generateRandomArray(6,50)).boxed().toArray(Integer[]::new);
 
         System.out.println(Arrays.toString(arr));
 
@@ -231,7 +360,7 @@ public class Demo {
     }
 
     public void ListTest(){
-        ArrayListX<Integer> list = new ArrayListX<>();
+        ArrayListX<Integer> list = new ArrayListX<>(4);
         //LinkedListX<Integer> list = new LinkedListX<>();
 
         list.append(5);
@@ -272,7 +401,18 @@ public class Demo {
         System.out.println(list.get(0));
         System.out.println(list.remove(9));
         System.out.println(list.size());
-        System.out.println(list.get(0));  
+        System.out.println(list.get(0));
+
+        list.remove(7);
+        list.remove(5);
+
+        for (int i = 0; i < 12; i++) {
+            list.append(i);
+        }
+        list.insertAt(420, 11);
+        System.out.println(list);
+        list.reverse();
+        System.out.println(list);
     }
 
     public void StackTest(){
@@ -330,7 +470,7 @@ public class Demo {
         System.out.println(q);
         System.out.println(q.size());
     }
-
+*/
     public void BubbleSortTest(){
         int[] nums = generateRandomArray(10,100);
         int[] test = Arrays.stream(nums).toArray();
@@ -342,17 +482,37 @@ public class Demo {
         System.out.println(Arrays.equals(nums,test));
     }
 
+    public void TwoCrystalTest(){
+        Random rand = new Random();
+
+        int idx = rand.nextInt(10000);
+        boolean[] data = new boolean[10000];
+        for (int i = idx; i < 10000; i++) {
+            data[i] = true;
+        }
+        
+        boolean[] data2 = new boolean[1000];
+
+        boolean[] data3 = new boolean[1000];
+        Arrays.fill(data3,true);
+ 
+        System.out.println("Idx: " + idx + ", Data: " + TwoCrystals.find(data));
+        System.out.println("False array: " + TwoCrystals.find(data2));
+        System.out.println("All true: " + TwoCrystals.find(data3));
+    
+    }
+
     public void BinarySearchTest(){
         Random rand = new Random();
         int[] nums = generateRandomArray(10,20);
-        BubbleSort.sort(nums);
+        Arrays.sort(nums);
         int target = rand.nextInt(26);
         System.out.println("Array: " + Arrays.toString(nums));
         System.out.println("Target: " + target);
         System.out.println("Found?: " + BinarySearch.search(nums, target));
 
     }
-
+/*
     public void MazeSolverTest(){
         String[] maze = {
             "xxxxxxxxxx x",
@@ -368,7 +528,7 @@ public class Demo {
         MazeSolver m = new MazeSolver();
         m.solve(maze,wall,start,end);
     }
-
+*/
     public int[] generateRandomArray(int l, int s){
         Random rand = new Random();
         int[] nums = new int[l];

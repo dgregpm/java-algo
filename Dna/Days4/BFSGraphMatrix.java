@@ -20,20 +20,23 @@ public class BFSGraphMatrix {
             }
 
             int[] adjs = graph[curr];
-            for (int i = 0; i < graph.length; i++) {
-                if(adjs[i] == 0)
+            //System.out.println(Arrays.toString(adjs));
+            for (int i = 0; i < adjs.length; i++) {
+                if(adjs[i] == 0 || seen[i])
                     continue;
-                if(seen[i])
-                    continue;
+                
                 seen[i] = true;
                 prev[i] = curr;
+                q.enqueue(i);
             }
         }
+
+        System.out.println(Arrays.toString(prev));
 
         int curr = needle;
         ArrayListX<Integer> out = new ArrayListX<>();
         while(prev[curr] != -1){
-            out.append(curr);
+            out.prepend(curr);
             curr = prev[curr];
         }
 

@@ -1,18 +1,19 @@
 import java.util.Arrays;
-import utils.ArrayListX;
 import utils.GraphEdge;
+import utils.ArrayListX;
 
-public class DijkstraListX {
+public class dijkstraListX {
     public ArrayListX<Integer> graph(int source, int sink, GraphEdge[][] g){
         boolean[] seen = new boolean[g.length];
         double[] dists = new double[g.length];
         int[] prev = new int[g.length];
         Arrays.fill(dists,Double.POSITIVE_INFINITY);
-        Arrays.fill(prev, -1);
+        Arrays.fill(prev,-1);
+
         dists[source] = 0;
 
-        while(this.hasUnvisited(seen,dists)){
-            int curr = lowestUnvisited(seen,dists);
+        while(hasUnvisited(seen,dists)){
+            int curr = getLowestUnvisited(seen,dists);
             seen[curr] = true;
 
             GraphEdge[] adjs = g[curr];
@@ -20,7 +21,7 @@ public class DijkstraListX {
                 GraphEdge edge = adjs[i];
                 if(seen[edge.to()])
                     continue;
-                
+
                 double dist = dists[curr] + edge.weight();
                 if(dist < dists[edge.to()]){
                     dists[edge.to()] = dist;
@@ -28,8 +29,10 @@ public class DijkstraListX {
                 }
             }
         }
+
         ArrayListX<Integer> out = new ArrayListX<>();
         int curr = sink;
+
         while(prev[curr] != -1){
             out.prepend(curr);
             curr = prev[curr];
@@ -37,7 +40,7 @@ public class DijkstraListX {
 
         if(out.size() > 0)
             out.prepend(source);
-        System.out.println(Arrays.toString(prev));
+
         return out;
     }
 
@@ -49,14 +52,14 @@ public class DijkstraListX {
         return false;
     }
 
-    public int lowestUnvisited(boolean[] seen, double[] dists){
+    public int getLowestUnvisited(boolean[] seen, double[] dists){
         int idx = -1;
         double lowestDistance = Double.POSITIVE_INFINITY;
-        
+
         for (int i = 0; i < seen.length; i++) {
             if(seen[i])
                 continue;
-            
+
             if(lowestDistance > dists[i]){
                 lowestDistance = dists[i];
                 idx = i;
