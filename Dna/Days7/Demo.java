@@ -1,13 +1,12 @@
 import java.util.Arrays;
 import java.util.Random;
-//import java.util.ArrayList;
-//import java.util.Stack;
 
-//import utils.Point;
-//import utils.BinaryNode;
-//import utils.QueueX;
-//import utils.StackX;
-//import utils.ArrayListX;
+import utils.Point;
+import utils.BinaryNode;
+import utils.QueueX;
+import utils.StackX;
+import utils.ArrayListX;
+//import utils.HashMapX;
 //import utils.LinkedListX;
 import utils.Graph;
 
@@ -15,29 +14,30 @@ public class Demo {
            
     public static void main(String[] args){
         Demo d = new Demo();
-        d.BubbleSortTest();
+        //d.BubbleSortTest();
+        //d.QuickSortTest();
+        //d.InsertionSortTest();
+        //d.MergeSortTest();
         //d.BinarySearchTest();
         //d.TwoCrystalTest();
-        //d.MazeSolverTest();
         //d.QueueTest();
         //d.StackTest();
         //d.ListTest();
-        //d.QuickSortTest();
+        //d.HashMapTest();
         //d.TreeOrderTest(); //d.BFSTest(); //d.CompareBTTest(); //d.DFSTest();
+        //d.MazeSolverTest();
         //d.MinHeapTest();
         //d.TrieTest();
-        //d.InsertionSortTest();
-        //d.BFSGraphMatrixTest();
-        //d.DFSGraphListTest();
-        //d.DijkstraListTest();
-        //d.HashMapTest();
+        d.BFSGraphMatrixTest();
+        d.DFSGraphListTest();
+        d.DijkstraListTest();
         //d.LRUTest();
-        //d.MergeSortTest();
+        //d.PrimsListTest();
     }
 /*
     public void PrimsListTest(){
         // there is only one right answer for this graph
-        //expect(prims(list1)).toEqual([
+        // expect(prims(list1)).toEqual([
         //    [
         //        { to: 2, weight: 1 },
         //        { to: 1, weight: 3 },
@@ -141,14 +141,14 @@ public class Demo {
         System.out.println(map.size());
         System.out.println(map.get("bar"));
     }
-
+*/
     public void DijkstraListTest(){
         /// waht?
         // what..
         // what...
         //expect(dijkstra_list(0, 6, list1)).toEqual([0, 1, 4, 5, 6]);
-        //DijkstraList d = new DijkstraList();
-        DijkstraListX d = new DijkstraListX();
+        DijkstraList d = new DijkstraList();
+        //DijkstraListX d = new DijkstraListX();
         System.out.println(d.graph(0,6,Graph.list1()));
     }
 
@@ -221,11 +221,8 @@ public class Demo {
 
     public void MinHeapTest(){
         MinHeap heap = new MinHeap();
-
         // expect(heap.length).toEqual(0);
-
         System.out.println(heap.size());
-
         heap.insert(5);
         heap.insert(3);
         heap.insert(69);
@@ -234,7 +231,6 @@ public class Demo {
         heap.insert(1);
         heap.insert(8);
         heap.insert(7);
-
        // expect(heap.length).toEqual(8);
         System.out.println(heap.size());
         System.out.println(heap);
@@ -246,10 +242,8 @@ public class Demo {
         System.out.println(heap.delete());
         System.out.println(heap.delete());
         System.out.println(heap.delete());
-
        // expect(heap.length).toEqual(4);
         System.out.println(heap.size());
-
        // expect(heap.delete()).toEqual(7);
        // expect(heap.delete()).toEqual(8);
        // expect(heap.delete()).toEqual(69);
@@ -258,10 +252,8 @@ public class Demo {
         System.out.println(heap.delete());
         System.out.println(heap.delete());
         System.out.println(heap.delete());
-
        // expect(heap.length).toEqual(0);
         System.out.println(heap.size());
-    
         System.out.println(heap.delete());
     }
 
@@ -319,21 +311,18 @@ public class Demo {
         System.out.println(dfs.search(tree1, 45));
         System.out.println(dfs.search(tree1, 7));
         System.out.println(dfs.search(tree1, 69));
-    
 
         // --------------------------------------------------------------
         System.out.println("\nCompareBTTest:");
         CompareBT cbt = new CompareBT();
         System.out.println(cbt.compare(tree1, tree1));
         System.out.println(cbt.compare(tree1, tree2));
-    
 
         // ---------------------------------------------------------------
         System.out.println("\nBFSTest:");
         System.out.println(BFS.search(tree1, 45));
         System.out.println(BFS.search(tree1, 31));
         System.out.println(BFS.search(tree1, 69));
-    
     }
 
     public void InsertionSortTest(){
@@ -470,7 +459,7 @@ public class Demo {
         System.out.println(q);
         System.out.println(q.size());
     }
-*/
+
     public void BubbleSortTest(){
         int[] nums = generateRandomArray(10,100);
         int[] test = Arrays.stream(nums).toArray();
@@ -512,7 +501,7 @@ public class Demo {
         System.out.println("Found?: " + BinarySearch.search(nums, target));
 
     }
-/*
+
     public void MazeSolverTest(){
         String[] maze = {
             "xxxxxxxxxx x",
@@ -528,7 +517,7 @@ public class Demo {
         MazeSolver m = new MazeSolver();
         m.solve(maze,wall,start,end);
     }
-*/
+
     public int[] generateRandomArray(int l, int s){
         Random rand = new Random();
         int[] nums = new int[l];
