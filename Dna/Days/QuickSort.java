@@ -1,6 +1,6 @@
 public class QuickSort {  
 
-    public void sort(Integer[] arr){
+    public void sort(int[] arr){
 
     }
 

@@ -1,11 +1,11 @@
-public class Map<T,V> {
+public class HashMapX<T,V> {
     
-    public HashMap() {
+    public HashMapX() {
 
     }
 
     public V get(T key) {
-
+        return null;
     }
     
     public void set(T key, V value) {
@@ -13,10 +13,10 @@ public class Map<T,V> {
     }
 
     public V delete(T key) {
-
+        return null;
     }
 
     public int size() {
-
+        return 0;
     }
 }
