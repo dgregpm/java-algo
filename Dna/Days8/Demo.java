@@ -1,29 +1,29 @@
 import java.util.Arrays;
 import java.util.Random;
 
-//import utils.Point;
-//import utils.BinaryNode;
-//import utils.QueueX;
-//import utils.StackX;
-//import utils.ArrayListX;
-//import utils.HashMapX;
-//import utils.LinkedListX;
-//import utils.Graph;
+import utils.Point;
+import utils.BinaryNode;
+import utils.QueueX;
+import utils.StackX;
+import utils.ArrayListX;
+import utils.HashMapX;
+import utils.LinkedListX;
+import utils.Graph;
 
 public class Demo {
            
     public static void main(String[] args){
         Demo d = new Demo();
-        d.BubbleSortTest();
-        d.InsertionSortTest();
-        d.QuickSortTest();
+        //d.BubbleSortTest();
+        //d.InsertionSortTest();
+        //d.QuickSortTest();
         //d.MergeSortTest();
         //d.BinarySearchTest();
         //d.TwoCrystalTest();
         //d.StackTest();
         //d.QueueTest();
         //d.ListTest();
-        //d.HashMapTest();
+        d.HashMapTest();
         //d.TreeOrderTest(); //d.BFSTest(); //d.CompareBTTest(); //d.DFSTest();
         //d.MazeSolverTest();
         //d.MinHeapTest();
@@ -32,39 +32,19 @@ public class Demo {
         //d.DFSGraphListTest();
         //d.DijkstraListTest();
         //d.LRUTest();
-        //d.PrimsListTest();
+        //d.PrimsListTest(); 
     }
 /*
     public void PrimsListTest(){
         // there is only one right answer for this graph
         // expect(prims(list1)).toEqual([
-        //    [
-        //        { to: 2, weight: 1 },
-        //        { to: 1, weight: 3 },
-        //    ],
-        //    [
-        //        { to: 0, weight: 3 },
-        //        { to: 4, weight: 1 },
-        //    ],
-        //    [ 
-        //        { to: 0, weight: 1 }
-        //    ],
-        //    [ 
-        //        { to: 6, weight: 1 }
-        //    ],
-        //    [
-        //        { to: 1, weight: 1 },
-        //        { to: 5, weight: 2 },
-        //    ],
-        //    [
-        //        { to: 4, weight: 2 },
-        //        { to: 6, weight: 1 },
-        //    ],
-        //    [
-        //        { to: 5, weight: 1 },
-        //        { to: 3, weight: 1 },
-        //    ],
-        //]);
+        //    [   { to: 2, weight: 1 }, { to: 1, weight: 3 },   ],
+        //    [   { to: 0, weight: 3 }, { to: 4, weight: 1 },   ],
+        //    [   { to: 0, weight: 1 }                          ],
+        //    [   { to: 6, weight: 1 }                          ],
+        //    [   { to: 1, weight: 1 }, { to: 5, weight: 2 },   ],
+        //    [   { to: 4, weight: 2 }, { to: 6, weight: 1 },   ],
+        //    [   { to: 5, weight: 1 }, { to: 3, weight: 1 },   ],  ]);
         PrimsList p = new PrimsList();
         GraphEdge[][] g = p.prims(Graph.list1());
         for (int i = 0; i < g.length; i++) {
@@ -102,7 +82,7 @@ public class Demo {
         //expect(lru.get("baz")).toEqual(undefined);
         System.out.println(lru.get("baz"));
     }
-
+*/
     public void DijkstraListTest(){
         //expect(dijkstra_list(0, 6, list1)).toEqual([0, 1, 4, 5, 6]);
         DijkstraList d = new DijkstraList();
@@ -210,7 +190,7 @@ public class Demo {
         MazeSolver m = new MazeSolver();
         m.solve(maze,wall,start,end);
     }
-    
+
     public void TreeOrderTest(){
         BinaryNode<Integer> tree1 = new BinaryNode<Integer>(20);
         tree1.left = new BinaryNode<Integer>(10);
@@ -248,14 +228,14 @@ public class Demo {
         TreeOrder t = new TreeOrder();        
         System.out.println("Tree Order:"); 
         QueueX<Integer> pre = t.preOrderSearch(tree1);
+        System.out.println(pre);
         QueueX<Integer> in = t.inOrderSearch(tree1);
+        System.out.println(in);
         QueueX<Integer> post = t.postOrderSearch(tree1);
+        System.out.println(post);
         // Pre: [ 20, 10, 5, 7, 15, 50, 30, 29, 45, 100 ]
         // In: [ 5, 7, 10, 15, 20, 29, 30, 45, 50, 100 ]
         // Post: [ 7, 5, 15, 10, 29, 45, 30, 100, 50, 20 ]
-        System.out.println(pre);
-        System.out.println(in);
-        System.out.println(post);
         // --------------------------------------------------------------
         System.out.println("\nDFSTest:");
         DFS dfs = new DFS();
@@ -288,6 +268,9 @@ public class Demo {
         map.set("bar", 69);
         //expect(map.size()).toEqual(4);
         System.out.println(map.size());
+        System.out.println(map);
+
+        map.set("test", 222).set("size", 00).set("remap", 33).set("milk", 12).set("cookies", 67);
         //expect(map.get("bar")).toEqual(69);
         System.out.println(map.get("bar"));
         //expect(map.get("blaz")).toEqual(undefined);
@@ -300,6 +283,8 @@ public class Demo {
         //expect(map.get("bar")).toEqual(undefined);
         System.out.println(map.size());
         System.out.println(map.get("bar"));
+        System.out.println(map.delete("foo"));
+        System.out.println(map);
     }
 
     public void ListTest(){
@@ -346,6 +331,9 @@ public class Demo {
             list.append(i);
         }
         list.insertAt(420, 11);
+        list.set(421, 12);
+        System.out.println(list.removeAt(list.size() - 1));
+        list.insertAt(69,0);
         System.out.println(list);
         list.reverse();
         System.out.println(list);
@@ -375,9 +363,9 @@ public class Demo {
     
     public void StackTest(){
         StackX<Integer> list = new StackX<>();
-        list.push(5);
-        list.push(7);
-        list.push(9);
+        list.push(5).push(7).push(9);
+        //list.push(7);
+        //list.push(9);
         System.out.println(list);
         list.reverse();
         System.out.println(list);
@@ -415,8 +403,10 @@ public class Demo {
     public void BinarySearchTest(){
         Random rand = new Random();
         int[] nums = generateRandomArray(10,20);
-        Arrays.sort(nums);
-        int target = rand.nextInt(26);
+        //Arrays.sort(nums);
+        QuickSort q = new QuickSort();
+        q.sort(nums);
+        int target = rand.nextInt(25);
         System.out.println("Array: " + Arrays.toString(nums));
         System.out.println("Target: " + target);
         System.out.println("Found?: " + BinarySearch.search(nums, target));
@@ -424,27 +414,27 @@ public class Demo {
     
     public void MergeSortTest(){
         MergeSort q = new MergeSort();
-        Integer[] arr = Arrays.stream(this.generateRandomArray(6,50)).boxed().toArray(Integer[]::new);
+        //Integer[] arr = Arrays.stream(this.generateRandomArray(6,50)).boxed().toArray(Integer[]::new);
+        int[] arr = this.generateRandomArray(6,50);
         System.out.println(Arrays.toString(arr));
         q.sort(arr);
         System.out.println(Arrays.toString(arr));
     }
-    
+
     public void QuickSortTest(){
         QuickSort q = new QuickSort();
-        Integer[] arr = Arrays.stream(this.generateRandomArray(6,50)).boxed().toArray(Integer[]::new);
+        //Integer[] arr = Arrays.stream(this.generateRandomArray(6,50)).boxed().toArray(Integer[]::new);
+        int[] arr = this.generateRandomArray(6,50);
         System.out.println(Arrays.toString(arr));
         q.sort(arr);
         System.out.println(Arrays.toString(arr));
     } 
-*/    
+    
     public void InsertionSortTest(){
         InsertionSort insert = new InsertionSort();
         int[] obj = this.generateRandomArray(10,30);
-        ArrayListX<Integer> arr = new ArrayListX<>(Arrays.stream(obj).boxed().toArray(Object[]::new), 10);
-        insert.sort(arr);
-        System.out.println("ArrayList Version: " + arr);        
-        insert.sort2(obj);
+        //ArrayListX<Integer> arr = new ArrayListX<>(Arrays.stream(obj).boxed().toArray(Object[]::new),10);
+        insert.sort(obj);
         System.out.println("Int Array Version: " + Arrays.toString(obj));
     } 
     
