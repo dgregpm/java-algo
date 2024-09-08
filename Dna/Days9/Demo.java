@@ -8,6 +8,7 @@ import utils.StackX;
 import utils.ArrayListX;
 import utils.HashMapX;
 import utils.LinkedListX;
+import utils.MinHeap;
 import utils.Graph;
 
 public class Demo {
@@ -23,14 +24,14 @@ public class Demo {
         //d.StackTest();
         //d.QueueTest();
         //d.ListTest();
-        d.HashMapTest();
+        //d.HashMapTest();
         //d.TreeOrderTest(); //d.BFSTest(); //d.CompareBTTest(); //d.DFSTest();
         //d.MazeSolverTest();
         //d.MinHeapTest();
         //d.TrieTest();
         //d.BFSGraphMatrixTest();
         //d.DFSGraphListTest();
-        //d.DijkstraListTest();
+        d.DijkstraListTest();
         //d.LRUTest();
         //d.PrimsListTest(); 
     }
@@ -138,7 +139,7 @@ public class Demo {
     }
 
     public void MinHeapTest(){
-        MinHeap heap = new MinHeap();
+        MinHeap<Integer> heap = new MinHeap<>();
         // expect(heap.length).toEqual(0);
         System.out.println(heap.size());
         heap.insert(5);
@@ -283,7 +284,8 @@ public class Demo {
         //expect(map.get("bar")).toEqual(undefined);
         System.out.println(map.size());
         System.out.println(map.get("bar"));
-        System.out.println(map.delete("foo"));
+        //System.out.println(map.delete("foo"));
+        //System.out.println(map.delete("size"));
         System.out.println(map);
     }
 
@@ -360,7 +362,7 @@ public class Demo {
         System.out.println(q);
         System.out.println(q.size());
     }
-    
+
     public void StackTest(){
         StackX<Integer> list = new StackX<>();
         list.push(5).push(7).push(9);
@@ -433,6 +435,7 @@ public class Demo {
     public void InsertionSortTest(){
         InsertionSort insert = new InsertionSort();
         int[] obj = this.generateRandomArray(10,30);
+        System.out.println("Original: " + Arrays.toString(obj));
         //ArrayListX<Integer> arr = new ArrayListX<>(Arrays.stream(obj).boxed().toArray(Object[]::new),10);
         insert.sort(obj);
         System.out.println("Int Array Version: " + Arrays.toString(obj));
