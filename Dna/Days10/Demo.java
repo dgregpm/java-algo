@@ -3,15 +3,15 @@ import java.util.Random;
 import java.time.Instant;
 import java.time.Duration;
 
-//import utils.Point;
-//import utils.BinaryNode;
+import utils.Point;
+import utils.BinaryNode;
 import utils.QueueX;
 import utils.StackX;
 import utils.ArrayListX;
-//import utils.HashMapX;
+import utils.HashMapX;
 import utils.LinkedListX;
-//import utils.MinHeap;
-//import utils.Graph;
+import utils.MinHeap;
+import utils.Graph;
 
 public class Demo {
            
@@ -25,7 +25,7 @@ public class Demo {
         //d.TwoCrystalTest();
         //d.StackTest();
         //d.QueueTest();
-        d.ListTest();
+        //d.ListTest();
         //d.HashMapTest();
         //d.TreeOrderTest(); //d.BFSTest(); //d.CompareBTTest(); //d.DFSTest();
         //d.MazeSolverTest();
@@ -33,7 +33,7 @@ public class Demo {
         //d.TrieTest();
         //d.BFSGraphMatrixTest();
         //d.DFSGraphListTest();
-        //d.DijkstraListTest();
+        d.DijkstraListTest();
         //d.LRUTest();
         //d.PrimsListTest(); 
     }
@@ -85,7 +85,7 @@ public class Demo {
         //expect(lru.get("baz")).toEqual(undefined);
         System.out.println(lru.get("baz"));
     }
-
+*/
     public void DijkstraListTest(){
         //expect(dijkstra_list(0, 6, list1)).toEqual([0, 1, 4, 5, 6]);
         DijkstraList d = new DijkstraList();
@@ -279,21 +279,22 @@ public class Demo {
         //expect(map.get("blaz")).toEqual(undefined);
         System.out.println(map.get("blaz"));
         map.delete("barblabr");
-        //expect(map.size()).toEqual(4);
+        //expect(map.size()).toEqual(9);
         System.out.println(map.size());
         map.delete("bar");
-        //expect(map.size()).toEqual(3);
+        //expect(map.size()).toEqual(8);
         //expect(map.get("bar")).toEqual(undefined);
         System.out.println(map.size());
         System.out.println(map.get("bar"));
         //System.out.println(map.delete("foo"));
         //System.out.println(map.delete("size"));
         System.out.println(map);
+        System.out.println(Arrays.toString(map.keySet()));
     }
-*/
+
     public void ListTest(){
-        //ArrayListX<Integer> list = new ArrayListX<>(4);
-        LinkedListX<Integer> list = new LinkedListX<>();
+        ArrayListX<Integer> list = new ArrayListX<>(4);
+        //LinkedListX<Integer> list = new LinkedListX<>();
         list.append(5);
         list.append(7);
         list.append(9);
