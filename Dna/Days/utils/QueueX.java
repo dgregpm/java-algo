@@ -1,10 +1,10 @@
 public class QueueX<T> {
 
-    public T deque() {
+    public T poll() {
         return null;       
     }
 
-    public void enqueue(T obj){
+    public void offer(T obj){
     
     }
 

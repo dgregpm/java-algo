@@ -1,8 +1,9 @@
+package utils;
 
-public class ArrayListX<T> {
+public class ArrayListX<T> implements List<T> {
        
-
-    private void prepend(T obj) {
+    @Override
+    private List<T> prepend(T obj) {
 
     }
 
