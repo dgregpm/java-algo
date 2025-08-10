@@ -18,9 +18,9 @@ public class Demo {
            
     public static void main(String[] args){
         Demo d = new Demo();
-        d.BubbleSortTest();
+        //d.BubbleSortTest();
         //d.InsertionSortTest();
-        //d.QuickSortTest();
+        d.QuickSortTest();
         //d.MergeSortTest();
         //d.BinarySearchTest();
         //d.TwoCrystalTest();
@@ -437,19 +437,19 @@ public class Demo {
         q.sort(arr);
         System.out.println(Arrays.toString(arr));
     }
-
+*/
     public void QuickSortTest(){
         QuickSort q = new QuickSort();
         //Integer[] arr = Arrays.stream(this.generateRandomArray(6,50)).boxed().toArray(Integer[]::new);
-        int[] arr = this.generateRandomArray(10000,10);
+        int[] arr = this.generateRandomArray(10,50);
         int[] arr2 = new int[arr.length];
         System.arraycopy(arr,0,arr2,0,arr.length);
-        //System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr));
         Instant start = Instant.now();
         q.sort(arr);
         Instant end = Instant.now();
         Duration dur = Duration.between(start,end);
-        //System.out.println("Quick Sort: " + Arrays.toString(arr));
+        System.out.println("Quick Sort: " + Arrays.toString(arr));
         System.out.println("Quick Sort Running time: " + dur.toMillis() + "ms");
 
         start = Instant.now();
@@ -461,18 +461,18 @@ public class Demo {
     
     public void InsertionSortTest(){
         InsertionSort insert = new InsertionSort();
-        int[] obj = this.generateRandomArray(100000,2);
-        //System.out.println("Original: " + Arrays.toString(obj));
+        int[] obj = this.generateRandomArray(10,100);
+        System.out.println("Original: " + Arrays.toString(obj));
         //ArrayListX<Integer> arr = new ArrayListX<>(Arrays.stream(obj).boxed().toArray(Object[]::new),10);
         //System.out.println("Original Array: " + Arrays.toString(obj));
         Instant start = Instant.now();
         insert.sort(obj);
         Instant end = Instant.now();
         Duration dur = Duration.between(start,end);
-        System.out.println("Insertion Sort: " );//+ Arrays.toString(obj));
+        System.out.println("Insertion Sort: " + Arrays.toString(obj));
         System.out.println("Running time: " + dur.toMillis() + "ms");
     }
-    */
+    
     public void BubbleSortTest(){
         int[] nums = generateRandomArray(10,100);
         int[] test = Arrays.stream(nums).toArray();
