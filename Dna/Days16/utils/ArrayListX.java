@@ -3,7 +3,17 @@ package utils;
 public class ArrayListX<T> {
     private int length;
     private int capacity;
+    private T[] arr;
 
+    public ArrayListX(){
+        this.capacity = 4;
+        this.arr = (T[])new Object[this.capacity];
+    }
+
+    public ArrayListX(int c){
+        this.capacity = c;
+        this.arr = (T[])new Object[this.capacity];
+    }
 
     private void prepend(T obj) {
 
