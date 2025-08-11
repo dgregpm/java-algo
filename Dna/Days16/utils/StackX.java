@@ -1,26 +1,76 @@
-public class StackX<T> {
+package utils;
 
-    public void push(T obj){
-   
+public class StackX<T> {
+    private int length;
+    private Node<T> head;
+
+    public StackX(){
+        this.length = 0;
+    }
+
+    public StackX<T> push(T obj){
+        Node<T> curr = new Node<>(obj);
+        if(this.length == 0){
+            this.head = curr;
+        }else{
+            curr.next = this.head;
+            this.head = curr;
+        }
+        this.length++;
+        return this;
     }
 
     public T pop(){
-        return null;  
+        if(this.length > 0){
+            Node<T> curr = this.head;
+            this.head = this.head.next;
+            curr.next = null;
+            this.length--;
+            return curr.getData();
+        }
+        return null;
     }
 
     public T peek(){
+        if(this.length > 0){
+            return this.head.getData();
+        }
         return null;
     }
 
-    public void reverse(){
+    public StackX<T> reverse(){
+        if(this.length <= 1){
+            return this;
+        }
+        Node<T> curr = this.head;
+        Node<T> before = null;
+        Node<T> after = null;
 
+        while(curr != null){
+            after = curr.next;
+            curr.next = before;
+            before = curr;
+            curr = after;
+        }
+        this.head = before;
+        return this;
     }
 
     public int size(){
-        return 0;
+        return this.length;
     }
 
     public String toString(){
-        return null;
+        StringBuilder sb = new StringBuilder();
+        sb.append("[ ");
+        Node<T> curr = this.head;
+        while(curr != null){
+            sb.append(curr.getData());
+            if(curr.next != null)
+                sb.append(", ");
+            curr = curr.next;
+        }
+        sb.append(" ]");
+        return sb.toString();
     }
 }

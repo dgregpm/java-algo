@@ -1,6 +1,9 @@
+package utils;
 
 public class ArrayListX<T> {
-       
+    private int length;
+    private int capacity;
+
 
     private void prepend(T obj) {
 

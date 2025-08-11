@@ -6,11 +6,11 @@ import java.time.Duration;
 //import utils.Point;
 //import utils.BinaryNode;
 //import utils.List;
-//import utils.QueueX;
-//import utils.StackX;
-//import utils.ArrayListX;
+import utils.QueueX;
+import utils.StackX;
+import utils.ArrayListX;
 //import utils.HashMapX;
-//import utils.LinkedListX;
+import utils.LinkedListX;
 //import utils.MinHeap;
 //import utils.Graph;
 
@@ -20,12 +20,12 @@ public class Demo {
         Demo d = new Demo();
         //d.BubbleSortTest();
         //d.InsertionSortTest();
-        d.QuickSortTest();
+        //d.QuickSortTest();
         //d.MergeSortTest();
         //d.BinarySearchTest();
         //d.TwoCrystalTest();
         //d.StackTest();
-        //d.QueueTest();
+        d.QueueTest();
         //d.ListTest();
         //d.HashMapTest();
         //d.TreeOrderTest(); //d.BFSTest(); //d.CompareBTTest(); //d.DFSTest();
@@ -297,7 +297,7 @@ public class Demo {
         System.out.println(Arrays.toString(map.keys()));
         System.out.println(Arrays.toString(map.values()));    
     }
-
+*/
     public void ListTest(){
         //ArrayListX<Integer> list = new ArrayListX<>(4);
         LinkedListX<Integer> list = new LinkedListX<>();
@@ -403,8 +403,8 @@ public class Demo {
 
     public void TwoCrystalTest(){
         Random rand = new Random();
-        //int idx = rand.nextInt(10000);
-        int idx = 9000;
+        int idx = rand.nextInt(10000);
+        //int idx = 9000;
         boolean[] data = new boolean[10000];
         for (int i = idx; i < 10000; i++) {
             data[i] = true;
@@ -437,7 +437,7 @@ public class Demo {
         q.sort(arr);
         System.out.println(Arrays.toString(arr));
     }
-*/
+
     public void QuickSortTest(){
         QuickSort q = new QuickSort();
         //Integer[] arr = Arrays.stream(this.generateRandomArray(6,50)).boxed().toArray(Integer[]::new);

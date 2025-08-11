@@ -1,27 +1,83 @@
-public class QueueX<T> {
+package utils;
 
-    public T poll() {
-        return null;       
+public class QueueX<T> {
+    private int length;
+    private Node<T> head;
+    private Node<T> tail;
+
+    public QueueX(){
+        this.length = 0;
     }
 
-    public void offer(T obj){
-    
+    public T poll() {
+        if(this.length == 0){
+            return null;
+        }
+        Node<T> curr = this.head;
+        if(this.length == 1){
+            this.head = this.tail = null;            
+        } else {
+            this.head = this.head.next;
+        }
+        curr.next = null;
+        this.length--;
+        return curr.getData();       
+    }
+
+    public QueueX<T> offer(T obj){
+        Node<T> curr = new Node<>(obj);
+        if(this.length == 0){
+            this.head = this.tail = curr;
+        } else {
+            this.tail.next = curr;
+            this.tail = curr;
+        }
+        this.length++;
+        return this;
     }
 
     public T peek() {
+        if(this.length > 0){
+            return this.head.getData();
+        }
         return null;
     }
 
-    public void reverse(){
+    public QueueX<T> reverse(){
+        if(this.length <= 1){
+            return this;
+        }
+        Node<T> before = null;
+        Node<T> curr = this.tail = this.head;
+        Node<T> after = null;
 
+        while(curr != null){
+            after = curr.next;
+            curr.next = before;
+            before = curr;
+            curr = after;
+        }
+        this.head = before;
+        return this;
     }
 
     public int size() {
-        return 0;
+        return this.length;
     }
 
     public String toString(){
-        return null;
+        StringBuilder sb = new StringBuilder();
+        sb.append("[ ");
+        Node<T> curr = this.head;
+        while(curr != null){
+            sb.append(curr.getData());
+            if(curr.next != null){
+                sb.append(", ");
+            }
+            curr = curr.next;
+        }
+        sb.append(" ]");
+        return sb.toString();
     }
 }
 
