@@ -15,8 +15,14 @@ public class ArrayListX<T> {
         this.arr = (T[])new Object[this.capacity];
     }
 
-    private void prepend(T obj) {
+    private void capacityCheck(){
+        if(this.length >= this.capacity + 2){
+            
+        }
+    }
 
+    private void prepend(T obj) {
+            
     }
 
     private void insertAt(int idx, T obj) {
