@@ -25,8 +25,8 @@ public class Demo {
         //d.BinarySearchTest();
         //d.TwoCrystalTest();
         //d.StackTest();
-        d.QueueTest();
-        //d.ListTest();
+        //d.QueueTest();
+        d.ListTest();
         //d.HashMapTest();
         //d.TreeOrderTest(); //d.BFSTest(); //d.CompareBTTest(); //d.DFSTest();
         //d.MazeSolverTest();
@@ -299,8 +299,8 @@ public class Demo {
     }
 */
     public void ListTest(){
-        //ArrayListX<Integer> list = new ArrayListX<>(4);
-        LinkedListX<Integer> list = new LinkedListX<>();
+        ArrayListX<Integer> list = new ArrayListX<>(4);
+        //LinkedListX<Integer> list = new LinkedListX<>();
         list.append(5);
         list.append(7);
         list.append(9);
