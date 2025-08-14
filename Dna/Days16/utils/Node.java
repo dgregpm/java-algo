@@ -13,6 +13,10 @@ public class Node<T> {
         return this.data;
     }
 
+    public void setData(T obj){
+        this.data = obj;
+    }
+
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();

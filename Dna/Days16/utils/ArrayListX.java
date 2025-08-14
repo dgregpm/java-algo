@@ -1,4 +1,5 @@
 package utils;
+import java.util.Arrays;
 
 public class ArrayListX<T> {
     private int length;
@@ -16,14 +17,11 @@ public class ArrayListX<T> {
     }
 
     private void capacityCheck(){
-        if(this.length == 0){
-            ub = 1;
-        }else{
-            int ub = Math.ceil((Math.log(this.length)/Math.log(2)));
+        int ub = 1;
+        if(this.length > 0){
+            ub = (int)Math.ceil((Math.log(this.length)/Math.log(2)));
+            ub = Math.max(ub,1);
         }
-
-        if(ub < 4)
-            ub = 4;
 
         if(this.length >= this.capacity - 2 || this.capacity > (int)Math.pow(2,ub + 4)){
             this.capacity = (int)Math.pow(2,ub + 1);
@@ -40,26 +38,39 @@ public class ArrayListX<T> {
     }
 
     private void unShift(int idx){
-        for (int i = idx; i < arr.length; i++) {
+        for (int i = idx; i < this.length; i++) {
             this.arr[i] = this.arr[i+1];
         }
     }
 
-    private void prepend(T obj) {
+    private boolean inRange(int idx){
+        if(idx < 0 || idx >= this.length)
+            return false;
+        return true;
+    }
+
+    public void prepend(T obj) {
         this.capacityCheck();
         this.shift(0);
         this.arr[0] = obj;
         this.length++;
     }
 
-    private void insertAt(int idx, T obj) {
-        this.capacityCheck();
-        this.shift(idx);
-        this.arr[idx] = obj;
-        this.length++;
+    public void insertAt(int idx, T obj) {
+        if(this.length == 0 && idx == 0)
+            this.append(obj);
+        else{
+            if(!this.inRange(idx)){
+                throw new IndexOutOfBoundsException("Index: " + idx + " is out of bounds!");
+            }
+            this.capacityCheck();
+            this.shift(idx);
+            this.arr[idx] = obj;
+            this.length++;
+        }
     }
 
-    private void append(T obj) {
+    public void append(T obj) {
         this.capacityCheck();
         this.arr[this.length] = obj;
         this.length++;
@@ -88,42 +99,82 @@ public class ArrayListX<T> {
     }
 
     public void clear(){
-
+        for (int i = 0; i < this.capacity; i++) {
+            this.arr[i] = null;
+        }
     }
 
-    public boolean contains(){
+    public boolean contains(T obj){
+        for (int i = 0; i < this.length; i++) {
+            if(this.arr[i].equals(obj))
+                return true;
+        }
         return false;
     }
 
     public boolean isEmpty(){
-        return false;
+        if(this.length == 0)
+            return false;
+        return true;
     }
 
-    public void sort(Comparator comp){
-
+    public void sort(){
+        Arrays.sort(this.arr,0,this.length);    
     }
 
     public int size(){
-        return 0;
+        return this.length;
     }
 
     public T get(int idx) {
-        return null;
+        if(!this.inRange(idx)){
+            throw new IndexOutOfBoundsException("Index: " + idx + " is out of bounds!");
+        }
+
+        return this.arr[idx];
     }
 
     public void set(int idx, T obj){
-
+        if(!this.inRange(idx)){
+            throw new IndexOutOfBoundsException("Index: " + idx + " is out of bounds!");
+        }
+        this.arr[idx] = obj;
     }
     
     public boolean remove(T obj) {
+        this.capacityCheck();
+        for (int i = 0; i < this.length; i++) {
+            if(this.arr[i].equals(obj)){
+                this.unShift(i);
+                this.length--;
+                return true;
+            }
+        }
         return false;
     }
 
-    public T remove(int idx) {
-        return null;
+    public T removeAt(int idx) {
+        if(!this.inRange(idx)){
+            throw new IndexOutOfBoundsException("Index: " + idx + " is out of bounds!");
+        }
+
+        this.capacityCheck();
+        T obj = this.arr[idx];
+        this.unShift(idx);
+        this.length--;
+        return obj;
     }
 
     public String toString(){
-        return "Sigh...";
+        StringBuilder sb = new StringBuilder();
+        sb.append("[ ");
+        for (int i = 0; i < this.length; i++) {
+            sb.append(this.arr[i]);
+            if(i < this.length - 1){
+                sb.append(", ");
+            }
+        }
+        sb.append(" ]");
+        return sb.toString();
     }
 }

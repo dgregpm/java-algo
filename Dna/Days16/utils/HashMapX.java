@@ -1,3 +1,5 @@
+package utils;
+
 public class HashMapX<T,V> {
     
     public HashMapX() {

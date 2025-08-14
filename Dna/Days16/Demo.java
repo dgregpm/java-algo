@@ -9,7 +9,7 @@ import java.time.Duration;
 import utils.QueueX;
 import utils.StackX;
 import utils.ArrayListX;
-//import utils.HashMapX;
+import utils.HashMapX;
 import utils.LinkedListX;
 //import utils.MinHeap;
 //import utils.Graph;
@@ -26,8 +26,8 @@ public class Demo {
         //d.TwoCrystalTest();
         //d.StackTest();
         //d.QueueTest();
-        d.ListTest();
-        //d.HashMapTest();
+        //d.ListTest();
+        d.HashMapTest();
         //d.TreeOrderTest(); //d.BFSTest(); //d.CompareBTTest(); //d.DFSTest();
         //d.MazeSolverTest();
         //d.MinHeapTest();
@@ -260,7 +260,7 @@ public class Demo {
         System.out.println(BFS.search(tree1, 31));
         System.out.println(BFS.search(tree1, 69));
     }
-
+*/
     public void HashMapTest(){
         HashMapX<String, Integer> map = new HashMapX<>();
         map.set("foo", 55);
@@ -297,10 +297,10 @@ public class Demo {
         System.out.println(Arrays.toString(map.keys()));
         System.out.println(Arrays.toString(map.values()));    
     }
-*/
+
     public void ListTest(){
-        ArrayListX<Integer> list = new ArrayListX<>(4);
-        //LinkedListX<Integer> list = new LinkedListX<>();
+        //ArrayListX<Integer> list = new ArrayListX<>(4);
+        LinkedListX<Integer> list = new LinkedListX<>();
         list.append(5);
         list.append(7);
         list.append(9);
