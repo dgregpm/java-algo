@@ -1,6 +1,21 @@
 package utils;
 
 public class HashMapX<T,V> {
+
+    private class HashNode<K,D>{
+        private D data;
+        private K key;
+        HashNode(K key, D data){
+            this.key = key;
+            this.data = data;
+        }
+        public K getKey(){
+            return this.key;
+        }
+        public D getData(){
+            
+       }
+    }
     
     public HashMapX() {
 
