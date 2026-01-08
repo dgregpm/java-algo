@@ -1,6 +1,6 @@
 public class StackX<T> {
 
-    public void push(T obj){
+    public StackX<T> push(T obj){
    
     }
 
@@ -12,7 +12,7 @@ public class StackX<T> {
         return null;
     }
 
-    public void reverse(){
+    public StackX<T> reverse(){
 
     }
 

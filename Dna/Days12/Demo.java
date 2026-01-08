@@ -17,9 +17,9 @@ public class Demo {
            
     public static void main(String[] args){
         Demo d = new Demo();
-        d.BubbleSortTest();
-        d.InsertionSortTest();
-        d.QuickSortTest();
+        //d.BubbleSortTest();
+        //d.InsertionSortTest();
+        //d.QuickSortTest();
         //d.MergeSortTest();
         //d.BinarySearchTest();
         //d.TwoCrystalTest();
@@ -29,7 +29,7 @@ public class Demo {
         //d.HashMapTest();
         //d.TreeOrderTest(); //d.BFSTest(); //d.CompareBTTest(); //d.DFSTest();
         //d.MazeSolverTest();
-        //d.MinHeapTest();
+        d.MinHeapTest();
         //d.TrieTest();
         //d.BFSGraphMatrixTest();
         //d.DFSGraphListTest();

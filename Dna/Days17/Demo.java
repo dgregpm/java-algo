@@ -3,15 +3,15 @@ import java.util.Random;
 import java.time.Instant;
 import java.time.Duration;
 
-//import utils.Point;
-//import utils.BinaryNode;
-//import utils.List;
+import utils.Point;
+import utils.Node;
 import utils.QueueX;
 import utils.StackX;
 import utils.ArrayListX;
-//import utils.HashMapX;
-//import utils.LinkedListX;
-//import utils.MinHeap;
+import utils.HashMapX;
+import utils.LinkedListX;
+import utils.MinHeap;
+import utils.Trie;
 //import utils.Graph;
 
 public class Demo {
@@ -26,12 +26,12 @@ public class Demo {
         //d.TwoCrystalTest();
         //d.StackTest();
         //d.QueueTest();
-        d.ListTest();
+        //d.ListTest();
         //d.HashMapTest();
         //d.TreeOrderTest(); //d.BFSTest(); //d.CompareBTTest(); //d.DFSTest();
         //d.MazeSolverTest();
         //d.MinHeapTest();
-        //d.TrieTest();
+        d.TrieTest();
         //d.BFSGraphMatrixTest();
         //d.DFSGraphListTest();
         //d.DijkstraListTest();
@@ -108,7 +108,7 @@ public class Demo {
         //expect(bfs(matrix2, 6, 0)).toEqual(null);
         System.out.println(b.bfs(Graph.matrix2(), 6, 0));
     }
-
+*/
     public void TrieTest(){
         Trie trie = new Trie();
         trie.insert("foo");
@@ -199,66 +199,69 @@ public class Demo {
     }
 
     public void TreeOrderTest(){
-        BinaryNode<Integer> tree1 = new BinaryNode<Integer>(20);
-        tree1.left = new BinaryNode<Integer>(10);
-        tree1.right = new BinaryNode<Integer>(50);
-        tree1.left.right = new BinaryNode<Integer>(15);
-        tree1.left.left = new BinaryNode<Integer>(5);
-        tree1.left.left.right = new BinaryNode<Integer>(7);
-        tree1.right.left = new BinaryNode<Integer>(30);
-        tree1.right.right = new BinaryNode<Integer>(100);
-        tree1.right.left.left = new BinaryNode<Integer>(29);
-        tree1.right.left.right = new BinaryNode<Integer>(45);
+        Node<Integer> tree1 = new Node<Integer>(20);
+        tree1.left = new Node<Integer>(10);
+        tree1.right = new Node<Integer>(50);
+        tree1.left.right = new Node<Integer>(15);
+        tree1.left.left = new Node<Integer>(5);
+        tree1.left.left.right = new Node<Integer>(7);
+        tree1.right.left = new Node<Integer>(30);
+        tree1.right.right = new Node<Integer>(100);
+        tree1.right.left.left = new Node<Integer>(29);
+        tree1.right.left.right = new Node<Integer>(45);
 
-        BinaryNode<Integer> tree2 = new BinaryNode<Integer>(20);
-        tree2.left = new BinaryNode<Integer>(10);
-        tree2.right = new BinaryNode<Integer>(50);
-        tree2.left.right = new BinaryNode<Integer>(15);
-        tree2.left.left = new BinaryNode<Integer>(5);
-        tree2.left.left.right = new BinaryNode<Integer>(7);
-        tree2.right.left = new BinaryNode<Integer>(30);
-        tree2.right.left.right = new BinaryNode<Integer>(45);
-        tree2.right.left.left = new BinaryNode<Integer>(29);
-        tree2.right.left.right = new BinaryNode<Integer>(45);
-        tree2.right.left.right.right = new BinaryNode<Integer>(49);
-        tree2.right.left.left.left = new BinaryNode<Integer>(21);
+        Node<Integer> tree2 = new Node<Integer>(20);
+        tree2.left = new Node<Integer>(10);
+        tree2.right = new Node<Integer>(50);
+        tree2.left.right = new Node<Integer>(15);
+        tree2.left.left = new Node<Integer>(5);
+        tree2.left.left.right = new Node<Integer>(7);
+        tree2.right.left = new Node<Integer>(30);
+        tree2.right.left.right = new Node<Integer>(45);
+        tree2.right.left.left = new Node<Integer>(29);
+        tree2.right.left.right = new Node<Integer>(45);
+        tree2.right.left.right.right = new Node<Integer>(49);
+        tree2.right.left.left.left = new Node<Integer>(21);
 
-        BinaryNode<Integer> tree3 = new BinaryNode<Integer>(7);
-        tree3.left = new BinaryNode<Integer>(23);
-        tree3.right = new BinaryNode<Integer>(8);
-        tree3.left.left = new BinaryNode<Integer>(5);
-        tree3.left.right = new BinaryNode<Integer>(4);
-        tree3.right.left = new BinaryNode<Integer>(21);
-        tree3.right.right = new BinaryNode<Integer>(15);
+        Node<Integer> tree3 = new Node<Integer>(7);
+        tree3.left = new Node<Integer>(23);
+        tree3.right = new Node<Integer>(8);
+        tree3.left.left = new Node<Integer>(5);
+        tree3.left.right = new Node<Integer>(4);
+        tree3.right.left = new Node<Integer>(21);
+        tree3.right.right = new Node<Integer>(15);
         
         // ------------------------------------------------------------
-        TreeOrder t = new TreeOrder();        
-        System.out.println("Tree Order:"); 
-        QueueX<Integer> pre = t.preOrderSearch(tree1);
-        System.out.println(pre);
-        QueueX<Integer> in = t.inOrderSearch(tree1);
-        System.out.println(in);
-        QueueX<Integer> post = t.postOrderSearch(tree1);
-        System.out.println(post);
+        System.out.println("Tree Order:");
+        
+        QueueX<Integer> pre = new QueueX<>();
+        TreeOps.treeOrder(tree1,pre,0);
+        System.out.println("Pre Order: " + pre);
+
+        QueueX<Integer> in = new QueueX<>();
+        TreeOps.treeOrder(tree1,in,1);
+        System.out.println("In Order: " + in);
+
+        QueueX<Integer> post = new QueueX<>();
+        TreeOps.treeOrder(tree1,post,2);
+        System.out.println("Post Order: " + post);
         // Pre: [ 20, 10, 5, 7, 15, 50, 30, 29, 45, 100 ]
         // In: [ 5, 7, 10, 15, 20, 29, 30, 45, 50, 100 ]
         // Post: [ 7, 5, 15, 10, 29, 45, 30, 100, 50, 20 ]
         // --------------------------------------------------------------
-        System.out.println("\nDFSTest:");
-        DFS dfs = new DFS();
-        System.out.println(dfs.search(tree1, 45));
-        System.out.println(dfs.search(tree1, 7));
-        System.out.println(dfs.search(tree1, 69));
-        // --------------------------------------------------------------
         System.out.println("\nCompareBTTest:");
-        CompareBT cbt = new CompareBT();
-        System.out.println(cbt.compare(tree1, tree1));
-        System.out.println(cbt.compare(tree1, tree2));
+        System.out.println("True: " + TreeOps.compareBT(tree1, tree1));
+        System.out.println("False: " + TreeOps.compareBT(tree1, tree2));
+        // --------------------------------------------------------------
+        System.out.println("\nDFSTest:");
+        System.out.println("True: " + TreeOps.DFSSearch(tree1, 45));
+        System.out.println("True: " + TreeOps.DFSSearch(tree1, 7));
+        System.out.println("False: " + TreeOps.DFSSearch(tree1, 69));
         // ---------------------------------------------------------------
         System.out.println("\nBFSTest:");
-        System.out.println(BFS.search(tree1, 45));
-        System.out.println(BFS.search(tree1, 31));
-        System.out.println(BFS.search(tree1, 69));
+        System.out.println("True: " + TreeOps.BFSSearch(tree1, 45));
+        System.out.println("False: " + TreeOps.BFSSearch(tree1, 31));
+        System.out.println("False: " + TreeOps.BFSSearch(tree1, 69));
     }
 
     public void HashMapTest(){
@@ -297,7 +300,7 @@ public class Demo {
         System.out.println(Arrays.toString(map.keys()));
         System.out.println(Arrays.toString(map.values()));    
     }
-*/
+
     public void ListTest(){
         //ArrayListX<Integer> list = new ArrayListX<>(4);
         LinkedListX<Integer> list = new LinkedListX<>();
@@ -421,8 +424,7 @@ public class Demo {
         Random rand = new Random();
         int[] nums = generateRandomArray(10,20);
         //Arrays.sort(nums);
-        QuickSort q = new QuickSort();
-        q.sort(nums);
+        SortOps.quickSort(nums);
         int target = rand.nextInt(25);
         System.out.println("Array: " + Arrays.toString(nums));
         System.out.println("Target: " + target);
@@ -430,54 +432,56 @@ public class Demo {
     } 
     
     public void MergeSortTest(){
-        MergeSort q = new MergeSort();
         //Integer[] arr = Arrays.stream(this.generateRandomArray(6,50)).boxed().toArray(Integer[]::new);
-        int[] arr = this.generateRandomArray(6,50);
-        System.out.println(Arrays.toString(arr));
-        q.sort(arr);
-        System.out.println(Arrays.toString(arr));
+        int[] nums = this.generateRandomArray(10,100);
+        System.out.println("Original: " + Arrays.toString(nums));
+        Instant start = Instant.now();
+        SortOps.mergeSort(nums);
+        Instant end = Instant.now();
+        Duration dur = Duration.between(start,end);
+        System.out.println("Merge Sort: " + Arrays.toString(nums));
+        System.out.println("Running time: " + dur.toMillis() + "ms");
     }
 
     public void QuickSortTest(){
-        QuickSort q = new QuickSort();
         //Integer[] arr = Arrays.stream(this.generateRandomArray(6,50)).boxed().toArray(Integer[]::new);
-        int[] arr = this.generateRandomArray(10,50);
-        int[] arr2 = new int[arr.length];
-        System.arraycopy(arr,0,arr2,0,arr.length);
-        System.out.println(Arrays.toString(arr));
+        int[] nums = this.generateRandomArray(10,100);
+        int[] nums2 = new int[nums.length];
+        System.arraycopy(nums,0,nums2,0,nums.length);
+        System.out.println("Original: " + Arrays.toString(nums));
         Instant start = Instant.now();
-        q.sort(arr);
+        SortOps.quickSort(nums);
         Instant end = Instant.now();
         Duration dur = Duration.between(start,end);
-        System.out.println("Quick Sort: " + Arrays.toString(arr));
-        System.out.println("Quick Sort Running time: " + dur.toMillis() + "ms");
+        System.out.println("Quick Sort: " + Arrays.toString(nums));
+        System.out.println("Running time: " + dur.toMillis() + "ms");
 
         start = Instant.now();
-        Arrays.sort(arr2);
+        Arrays.sort(nums2);
         end = Instant.now();
         dur = Duration.between(start,end);
         System.out.println("Arrays Sort Running time: " + dur.toMillis() + "ms");
     } 
     
     public void InsertionSortTest(){
-        InsertionSort insert = new InsertionSort();
-        int[] obj = this.generateRandomArray(10,100);
-        System.out.println("Original: " + Arrays.toString(obj));
-        //ArrayListX<Integer> arr = new ArrayListX<>(Arrays.stream(obj).boxed().toArray(Object[]::new),10);
-        //System.out.println("Original Array: " + Arrays.toString(obj));
+        int[] nums = this.generateRandomArray(10,100);
+        System.out.println("Original: " + Arrays.toString(nums));
+        //ArrayListX<Integer> arr = new ArrayListX<>(Arrays.stream(nums).boxed().toArray(Object[]::new),10);
+        //System.out.println("Original Array: " + Arrays.toString(nums));
         Instant start = Instant.now();
-        insert.sort(obj);
+        SortOps.insertionSort(nums);
         Instant end = Instant.now();
         Duration dur = Duration.between(start,end);
-        System.out.println("Insertion Sort: " + Arrays.toString(obj));
+        System.out.println("Insertion Sort: " + Arrays.toString(nums));
         System.out.println("Running time: " + dur.toMillis() + "ms");
     }
 
     public void BubbleSortTest(){
         int[] nums = generateRandomArray(10,100);
         int[] test = Arrays.stream(nums).toArray();
+        System.out.println("Original: " + Arrays.toString(nums));
         Instant start = Instant.now();
-        BubbleSort.sort(nums);
+        SortOps.bubbleSort(nums);
         Instant end = Instant.now();
         Duration dur = Duration.between(start,end);
         //Arrays.sort(test);

@@ -4,7 +4,7 @@ public class QueueX<T> {
         return null;       
     }
 
-    public void offer(T obj){
+    public QueueX<T> offer(T obj){
     
     }
 
@@ -12,7 +12,7 @@ public class QueueX<T> {
         return null;
     }
 
-    public void reverse(){
+    public QueueX<T> reverse(){
 
     }
 

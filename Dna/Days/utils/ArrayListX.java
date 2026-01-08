@@ -1,4 +1,3 @@
-
 public class ArrayListX<T> {
        
 
@@ -14,15 +13,7 @@ public class ArrayListX<T> {
 
     }
 
-    public boolean add(T obj){
-        return true;
-    }
-
-    public void add(int idx, T obj){
-
-    }
-
-    public void reverse(){
+    public ArrayListX<T> reverse(){
 
     }
 
@@ -58,7 +49,7 @@ public class ArrayListX<T> {
         return false;
     }
 
-    public T remove(int idx) {
+    public T removeAt(int idx) {
         return null;
     }
 
